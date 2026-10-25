@@ -1,4 +1,4 @@
-use proc_macro_error::{abort, emit_warning};
+use proc_macro_error3::{abort, emit_warning};
 use proc_macro2::{Literal, Span, TokenStream, TokenTree};
 use quote::{ToTokens, quote};
 
@@ -12,7 +12,7 @@ pub fn derive_manager_event_subscriber(input: syn::DeriveInput) -> TokenStream {
                     if manager_ty.is_none() {
                         manager_ty = Some(meta.value()?.parse()?);
                     } else {
-                        proc_macro_error::emit_error!(
+                        proc_macro_error3::emit_error!(
                             meta.input.span(),
                             "`manager` attribute given multiple times"
                         );
@@ -42,7 +42,7 @@ pub fn derive_manager_event_subscriber(input: syn::DeriveInput) -> TokenStream {
     };
 
     let Some(manager_ty) = manager_ty else {
-        proc_macro_error::abort_call_site!(
+        proc_macro_error3::abort_call_site!(
             "Missing manager attribute";
             hint = "To implement `ManagerEventSubscriber<MyManagerType>`, add an attribute `#[subscribe(manager = MyManagerType)]` to the struct"
         );
@@ -117,7 +117,7 @@ pub fn derive_manager_event_subscriber(input: syn::DeriveInput) -> TokenStream {
         }
     }
 
-    proc_macro_error::abort_if_dirty();
+    proc_macro_error3::abort_if_dirty();
 
     let methods = bodies.into_iter().map(|(id, body, is_unsafe)| {
         if is_unsafe {

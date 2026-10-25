@@ -1,4 +1,4 @@
-use proc_macro_error::{abort, emit_error};
+use proc_macro_error3::{abort, emit_error};
 use proc_macro2::{Span, TokenStream};
 use quote::{ToTokens, quote};
 use syn::{Token, spanned::Spanned};
@@ -148,7 +148,7 @@ pub fn derive_function(input: syn::DeriveInput) -> TokenStream {
     }
 
     let struct_field = StructField::single_from_item(input.data, "Function");
-    proc_macro_error::abort_if_dirty();
+    proc_macro_error3::abort_if_dirty();
     let ty = &struct_field.ty;
     let from_edge_body = struct_field.gen_from_inner(
         quote!(<#ty as ::oxidd_core::function::Function>::from_edge(manager, edge)),
@@ -400,7 +400,7 @@ fn derive_function_trait(
 ) -> TokenStream {
     let ident = input.ident;
     let struct_field = StructField::single_from_item(input.data, trait_name);
-    proc_macro_error::abort_if_dirty();
+    proc_macro_error3::abort_if_dirty();
     let trait_ident = syn::Ident::new(trait_name, Span::call_site());
     let trait_path = quote!(::oxidd_core::function::#trait_ident);
 

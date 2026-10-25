@@ -1,5 +1,5 @@
 use crate::util::{get_repr, is_repr_u8};
-use proc_macro_error::{abort, emit_error};
+use proc_macro_error3::{abort, emit_error};
 use proc_macro2::TokenStream;
 use quote::quote;
 use syn::spanned::Spanned;
@@ -42,7 +42,7 @@ pub fn derive_countable(input: syn::DeriveInput) -> TokenStream {
                 );
             }
 
-            proc_macro_error::abort_if_dirty();
+            proc_macro_error3::abort_if_dirty();
 
             let max_value = num_variants - 1;
 

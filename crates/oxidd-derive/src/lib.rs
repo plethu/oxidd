@@ -19,7 +19,7 @@ pub(crate) mod util;
 /// - Fieldless `enum`s with primitive representation (currently `repr(u8)`
 ///   only). Explicit discriminants are not yet supported.
 /// - `struct`s with zero fields.
-#[proc_macro_error::proc_macro_error]
+#[proc_macro_error3::proc_macro_error]
 #[proc_macro_derive(Countable)]
 pub fn derive_countable(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let input = syn::parse_macro_input!(input as syn::DeriveInput);
@@ -104,7 +104,7 @@ pub fn derive_countable(input: proc_macro::TokenStream) -> proc_macro::TokenStre
 /// the generation of those trait bounds, specify `no_trait_bounds` via a
 /// struct-level `subscribe` attribute. (This will not affect trait bounds from
 /// the struct declaration itself.)
-#[proc_macro_error::proc_macro_error]
+#[proc_macro_error3::proc_macro_error]
 #[proc_macro_derive(ManagerEventSubscriber, attributes(subscribe))]
 pub fn derive_manager_event_subscriber(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let input = syn::parse_macro_input!(input as syn::DeriveInput);
@@ -123,7 +123,7 @@ pub fn derive_manager_event_subscriber(input: proc_macro::TokenStream) -> proc_m
 ///
 /// To influence the representation identifier, use the attribute
 /// `#[repr_id = "MY_BDD"]`.
-#[proc_macro_error::proc_macro_error]
+#[proc_macro_error3::proc_macro_error]
 #[proc_macro_derive(Function, attributes(use_manager_ref, repr_id))]
 pub fn derive_function(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let input = syn::parse_macro_input!(input as syn::DeriveInput);
@@ -135,7 +135,7 @@ pub fn derive_function(input: proc_macro::TokenStream) -> proc_macro::TokenStrea
 ///
 /// This trait can be derived for `struct`s that wrap another `FunctionSubst`
 /// implementation. The same restrictions apply as for deriving [`Function`].
-#[proc_macro_error::proc_macro_error]
+#[proc_macro_error3::proc_macro_error]
 #[proc_macro_derive(FunctionSubst)]
 pub fn derive_function_subst(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let input = syn::parse_macro_input!(input as syn::DeriveInput);
@@ -147,7 +147,7 @@ pub fn derive_function_subst(input: proc_macro::TokenStream) -> proc_macro::Toke
 ///
 /// This trait can be derived for `struct`s that wrap another `BooleanFunction`
 /// implementation. The same restrictions apply as for deriving [`Function`].
-#[proc_macro_error::proc_macro_error]
+#[proc_macro_error3::proc_macro_error]
 #[proc_macro_derive(BooleanFunction)]
 pub fn derive_boolean_function(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let input = syn::parse_macro_input!(input as syn::DeriveInput);
@@ -160,7 +160,7 @@ pub fn derive_boolean_function(input: proc_macro::TokenStream) -> proc_macro::To
 /// This trait can be derived for `struct`s that wrap another
 /// `BooleanFunctionQuant` implementation. The same restrictions apply as for
 /// deriving [`Function`].
-#[proc_macro_error::proc_macro_error]
+#[proc_macro_error3::proc_macro_error]
 #[proc_macro_derive(BooleanFunctionQuant)]
 pub fn derive_boolean_function_quant(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let input = syn::parse_macro_input!(input as syn::DeriveInput);
@@ -172,7 +172,7 @@ pub fn derive_boolean_function_quant(input: proc_macro::TokenStream) -> proc_mac
 ///
 /// This trait can be derived for `struct`s that wrap another `BooleanVecSet`
 /// implementation. The same restrictions apply as for deriving [`Function`].
-#[proc_macro_error::proc_macro_error]
+#[proc_macro_error3::proc_macro_error]
 #[proc_macro_derive(BooleanVecSet)]
 pub fn derive_boolean_vec_set(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let input = syn::parse_macro_input!(input as syn::DeriveInput);
@@ -185,7 +185,7 @@ pub fn derive_boolean_vec_set(input: proc_macro::TokenStream) -> proc_macro::Tok
 /// This trait can be derived for `struct`s that wrap another
 /// `PseudoBooleanFunction` implementation. The same restrictions apply as for
 /// deriving [`Function`].
-#[proc_macro_error::proc_macro_error]
+#[proc_macro_error3::proc_macro_error]
 #[proc_macro_derive(PseudoBooleanFunction)]
 pub fn derive_pseudo_boolean_function(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let input = syn::parse_macro_input!(input as syn::DeriveInput);
@@ -197,7 +197,7 @@ pub fn derive_pseudo_boolean_function(input: proc_macro::TokenStream) -> proc_ma
 ///
 /// This trait can be derived for `struct`s that wrap another `TVLFunction`
 /// implementation. The same restrictions apply as for deriving [`Function`].
-#[proc_macro_error::proc_macro_error]
+#[proc_macro_error3::proc_macro_error]
 #[proc_macro_derive(TVLFunction)]
 pub fn derive_tvl_function(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let input = syn::parse_macro_input!(input as syn::DeriveInput);

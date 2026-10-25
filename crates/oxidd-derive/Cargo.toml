@@ -19,7 +19,7 @@ proc-macro = true
 syn = "3.0.3"
 quote = "1.0"
 proc-macro2 = "1.0"
-proc-macro-error = { version = "1.0", default-features = false }
+proc-macro-error3 = { version = "3.1.1", default-features = false }
 
 [dev-dependencies]
 oxidd-core.workspace = true
@@ -30,4 +30,4 @@ trybuild = "1.0"
 [features]
 default = []
 
-nightly-ui-tests = []
+nightly-ui-tests = ["proc-macro-error3/nightly"]

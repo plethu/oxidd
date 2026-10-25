@@ -1,4 +1,4 @@
-use proc_macro_error::abort;
+use proc_macro_error3::abort;
 use syn::spanned::Spanned;
 
 /// Extract the value of the `repr(...)` attribute from `attrs`, if present
